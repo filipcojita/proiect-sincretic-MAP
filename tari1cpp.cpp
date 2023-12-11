@@ -5,16 +5,16 @@
 
 using namespace std;
 
-// Structura pentru a reprezenta o țară
+// Structura pentru a reprezenta o tara
 struct Country {
     string name;
     set<int> neighbors;
     int color;
 
-    Country(string n) : name(n), color(-1) {}  // Inițializăm culoarea cu -1 (nedefinită)
+    Country(string n) : name(n), color(-1) {}  // Initializam culoarea cu -1 (nedefinita)
 };
 
-// Funcție pentru colorarea grafurilor
+// Functie pentru colorarea grafurilor
 void colorCountries(vector<Country>& countries, const vector<string>& colors) {
     for (int i = 0; i < countries.size(); ++i) {
         set<int> usedColors;
@@ -34,20 +34,20 @@ void colorCountries(vector<Country>& countries, const vector<string>& colors) {
 
 int main() {
     int N;
-    cout << "Introduceți numărul de țări: ";
+    cout << "Introduceti numarul de tari: ";
     cin >> N;
 
     vector<Country> countries;
     vector<string> colors;
 
-    cout << "Introduceți numele țărilor:" << endl;
+    cout << "Introduceti numele tarilor:" << endl;
     for (int i = 0; i < N; ++i) {
         string name;
         cin >> name;
         countries.push_back(Country(name));
     }
 
-    cout << "Introduceți vecinii pentru fiecare țară (indicele țării):" << endl;
+    cout << "Introduceti vecinii pentru fiecare tară (indicele tarii):" << endl;
     for (int i = 0; i < N; ++i) {
         int numNeighbors;
         cin >> numNeighbors;
@@ -59,7 +59,7 @@ int main() {
         }
     }
 
-    cout << "Introduceți culorile posibile:" << endl;
+    cout << "Introduceti culorile posibile:" << endl;
     int numColors;
     cin >> numColors;
     for (int i = 0; i < numColors; ++i) {
@@ -70,9 +70,9 @@ int main() {
 
     colorCountries(countries, colors);
 
-    cout << "Culorile pentru fiecare țară:" << endl;
+    cout << "Culorile pentru fiecare tara:" << endl;
     for (int i = 0; i < N; ++i) {
-        cout << countries[i].name << " este colorată cu " << colors[countries[i].color] << endl;
+        cout << countries[i].name << " este colorata cu " << colors[countries[i].color] << endl;
     }
 
     return 0;

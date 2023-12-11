@@ -1,3 +1,6 @@
+//- dlt diacrt
+//+ trnsl to rou
+
 #include <iostream>
 #include <vector>
 #include <map>
@@ -6,21 +9,21 @@
 #include <string>
 using namespace std;
 
-// Definirea structurii pentru o țară
+// Definirea structurii pentru o tara
 struct Country {
 	string name;
 	set<string> neighbors;
 	string color;
 };
 
-// Funcția pentru colorarea țărilor
+// Functia pentru colorarea tarilor
 void colorCountries(vector<Country>& countries, const set<string>& availableColors) {
-	// Parcurgem fiecare țară în parte
+	// Parcurgem fiecare tara in parte
 	for (Country& country : countries) {
-		// Verificăm culorile disponibile pentru țara curentă
+		// Verificam culorile disponibile pentru tara curenta
 		set<string> availableColorsForCountry = availableColors;
 
-		// Iterăm prin vecinii țării și eliminăm culorile vecinilor
+		// Iteram prin vecinii tarii si eliminăm culorile vecinilor
 		for (const string& neighbor : country.neighbors) {
 			auto neighborIt = find_if(countries.begin(), countries.end(),
 				[neighbor](const Country& c) { return c.name == neighbor; });
@@ -30,14 +33,14 @@ void colorCountries(vector<Country>& countries, const set<string>& availableColo
 			}
 		}
 
-		// Alegem prima culoare disponibilă pentru țara curentă
+		// Alegem prima culoare disponibila pentru tara curenta
 		if (!availableColorsForCountry.empty()) {
 			country.color = *availableColorsForCountry.begin();
 		}
 	}
 }
 
-// Funcția pentru afișarea rezultatelor
+// Functia pentru afisarea rezultatelor
 void printResult(const vector<Country>& countries) {
 	for (const Country& country : countries) {
 		cout << "Tara: " << country.name << ", Culoare: " << country.color << endl;
@@ -51,16 +54,16 @@ int main() {
 		{"B", {"A", "C"}, ""},
 		{"C", {"A", "B", "D"}, ""},
 		{"D", {"A", "C"}, ""}
-		// Puteți adăuga mai multe țări și vecini după necesitate
+		// Puteti adauga mai multe tari si vecini după necesitate
 	};
 
 	// Lista de culori posibile
 	set<string> availableColors = { "Red", "Green", "Blue" };
 
-	// Apelăm funcția de colorare a țărilor
+	// Apelam functia de colorare a tarilor
 	colorCountries(countries, availableColors);
 
-	// Afișăm rezultatele
+	// Afisam rezultatele
 	printResult(countries);
 
 	return 0;
