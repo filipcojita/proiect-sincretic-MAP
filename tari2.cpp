@@ -1,6 +1,3 @@
-//- dlt diacrt
-//+ trnsl to rou
-
 #include <iostream>
 #include <vector>
 #include <map>
@@ -9,62 +6,60 @@
 #include <string>
 using namespace std;
 
-// Definirea structurii pentru o tara
-struct Country {
-	string name;
-	set<string> neighbors;
-	string color;
+// definire structura tara
+struct tara {
+	string nume;
+	set<string> vecini;
+	string culoare;
 };
 
-// Functia pentru colorarea tarilor
-void colorCountries(vector<Country>& countries, const set<string>& availableColors) {
-	// Parcurgem fiecare tara in parte
-	for (Country& country : countries) {
-		// Verificam culorile disponibile pentru tara curenta
-		set<string> availableColorsForCountry = availableColors;
+// functie pt colorare tari
+void coloreaza_tari(vector<tara>& tari, const set<string>& culori_disponibile) {
+	// parcurgem fiecare tara in parte
+	for (tara& tara_curent : tari) {
+		// verific culorile disponibile pentru tara curenta
+		set<string> culoare_disponibila_tara = culori_disponibile;
 
-		// Iteram prin vecinii tarii si eliminăm culorile vecinilor
-		for (const string& neighbor : country.neighbors) {
-			auto neighborIt = find_if(countries.begin(), countries.end(),
-				[neighbor](const Country& c) { return c.name == neighbor; });
+		// itereaza prin vecinii tarii si elimina culorile vecinilor
+		for (const string& vecin : tara_curent.vecini) {
+			auto vecin_iter = find_if(tari.begin(), tari.end(), [vecin](const tara& c) { 
+					return c.nume == vecin; 
+					});
 
-			if (neighborIt != countries.end()) {
-				availableColorsForCountry.erase(neighborIt->color);
+			if (vecin_iter != tari.end()) {
+				culoare_disponibila_tara.erase(vecin_iter->culoare);
 			}
 		}
 
-		// Alegem prima culoare disponibila pentru tara curenta
-		if (!availableColorsForCountry.empty()) {
-			country.color = *availableColorsForCountry.begin();
+		// alege prima culoare disponibila pentru tara curenta
+		if (!culoare_disponibila_tara.empty()) {
+			tara_curent.culoare = *culoare_disponibila_tara.begin();
 		}
 	}
 }
 
-// Functia pentru afisarea rezultatelor
-void printResult(const vector<Country>& countries) {
-	for (const Country& country : countries) {
-		cout << "Tara: " << country.name << ", Culoare: " << country.color << endl;
+// functie pt afisarea rezultatelor
+void rezultat(const vector<tara>& tari) {
+	for (const tara& tara : tari) {
+		cout << "Tara: " << tara.nume << ", Culoare: " << tara.culoare << endl;
 	}
 }
 
 int main() {
-	// Lista de țări și vecinii lor
-	vector<Country> countries = {
-		{"A", {"B", "C", "D"}, ""},
-		{"B", {"A", "C"}, ""},
-		{"C", {"A", "B", "D"}, ""},
-		{"D", {"A", "C"}, ""}
-		// Puteti adauga mai multe tari si vecini după necesitate
+	//lista tari si vecini
+	vector<tara> tari = {
+		{"Romania", {"Ungaria", "Bulgaria", "Ucraina"}, ""},
+		{"Ungaria", {"Romania", "Austria"}, ""},
+		{"Serbia", {"Romania", "Ungaria", "Croatia"}, ""},
+		{"Moldova", {"Romania", "Ucraina"}, ""},
+		{"Ucraina", {"Romania", "Ungaria", "Polonia", "Rusia"}, ""}
 	};
 
-	// Lista de culori posibile
-	set<string> availableColors = { "Red", "Green", "Blue" };
+	// lista culori posibile
+	set<string> culori_disponibile = { "Rosu", "Galben", "Albastru" };
 
-	// Apelam functia de colorare a tarilor
-	colorCountries(countries, availableColors);
-
-	// Afisam rezultatele
-	printResult(countries);
+	coloreaza_tari(tari, culori_disponibile);
+	rezultat(tari);
 
 	return 0;
 }

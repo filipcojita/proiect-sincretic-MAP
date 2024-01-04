@@ -6,19 +6,19 @@
 using namespace std;
 
 // Structura pentru a reprezenta o tara
-struct Country {
-    string name;
-    set<int> neighbors;
+struct tara {
+    string nume;
+    set<int> vecini;
     int color;
 
-    Country(string n) : name(n), color(-1) {}  // Initializam culoarea cu -1 (nedefinita)
+    tara(string n) : nume(n), color(-1) {}  // Initializam culoarea cu -1 (nedefinita)
 };
 
 // Functie pentru colorarea grafurilor
-void colorCountries(vector<Country>& countries, const vector<string>& colors) {
+void colorCountries(vector<tara>& countries, const vector<string>& colors) {
     for (int i = 0; i < countries.size(); ++i) {
         set<int> usedColors;
-        for (int neighbor : countries[i].neighbors) {
+        for (int neighbor : countries[i].vecini) {
             if (countries[neighbor].color != -1) {
                 usedColors.insert(countries[neighbor].color);
             }
@@ -37,14 +37,14 @@ int main() {
     cout << "Introduceti numarul de tari: ";
     cin >> N;
 
-    vector<Country> countries;
+    vector<tara> countries;
     vector<string> colors;
 
     cout << "Introduceti numele tarilor:" << endl;
     for (int i = 0; i < N; ++i) {
         string name;
         cin >> name;
-        countries.push_back(Country(name));
+        countries.push_back(tara(name));
     }
 
     cout << "Introduceti vecinii pentru fiecare tară (indicele tarii):" << endl;
@@ -54,8 +54,8 @@ int main() {
         for (int j = 0; j < numNeighbors; ++j) {
             int neighbor;
             cin >> neighbor;
-            countries[i].neighbors.insert(neighbor);
-            countries[neighbor].neighbors.insert(i);
+            countries[i].vecini.insert(neighbor);
+            countries[neighbor].vecini.insert(i);
         }
     }
 
@@ -72,7 +72,7 @@ int main() {
 
     cout << "Culorile pentru fiecare tara:" << endl;
     for (int i = 0; i < N; ++i) {
-        cout << countries[i].name << " este colorata cu " << colors[countries[i].color] << endl;
+        cout << countries[i].nume << " este colorata cu " << colors[countries[i].color] << endl;
     }
 
     return 0;
