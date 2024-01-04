@@ -48,11 +48,13 @@ void rezultat(const vector<tara>& tari) {
 int main() {
 	//lista tari si vecini
 	vector<tara> tari = {
-		{"Romania", {"Ungaria", "Bulgaria", "Ucraina"}, ""},
-		{"Ungaria", {"Romania", "Austria"}, ""},
-		{"Serbia", {"Romania", "Ungaria", "Croatia"}, ""},
+		{"Romania", {"Ungaria", "Bulgaria", "Ucraina", "Moldova", "Serbia"}, ""},
+		{"Ungaria", {"Romania", "Austria", "Slovacia", "Slovenia", "Croatia", "Serbia"}, ""},
+		{"Serbia", {"Romania", "Ungaria", "Croatia", "Bosnia", "Muntenegru","Kosovo", "Macedonia", "Bulgaria"}, ""},
 		{"Moldova", {"Romania", "Ucraina"}, ""},
-		{"Ucraina", {"Romania", "Ungaria", "Polonia", "Rusia"}, ""}
+		{"Ucraina", {"Romania", "Ungaria", "Polonia", "Rusia","Slovacia", "Moldova", "Belarus"}, ""},
+		{"Bulgaria", {"Romania", "Serbia", "Macedonia", "Grecia", "Turcia"}, ""},
+		{"Slovacia", {"Ucraina", "Polonia", "Cehia", "Austria","Ungaria"}, ""}
 	};
 
 	// lista culori posibile
