@@ -11,7 +11,7 @@ __În cazul de față sunt date țările: România, Ungaria, Moldova, Ucraina, B
 
 __Culorile displonibile date sunt: Roșu, Galben, Albastru.__
 
-**Principalele componente ale codului sunt:**
+## Principalele componente ale codului:
 
   ```Structura tara```: Definește o structură pentru reprezentarea unei țări, cu câmpuri pentru nume, lista de vecini și culoare.
   
