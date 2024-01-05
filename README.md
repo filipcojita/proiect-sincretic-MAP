@@ -25,10 +25,19 @@ __Culorile displonibile date sunt: Roșu, Galben, Albastru.__
   
 
 ## Exemplu rulare:
-*ce apare in CMD*
+```
+Tara: Romania, Culoare: Albastru
+Tara: Ungaria, Culoare: Galben
+Tara: Serbia, Culoare: Rosu
+Tara: Moldova, Culoare: Galben
+Tara: Ucraina, Culoare: Rosu
+Tara: Bulgaria, Culoare: Galben
+Tara: Slovacia, Culoare: Albastru
+```
 
 ## Vizualizare exemplu preimplementat
-*photo*
+![MapChart_Map](https://github.com/filipcojita/proiect-sincretic-MAP/assets/96796816/d7492e6b-2586-4aaf-92f2-e51797385b5c)
+
 
 ## Livrabil
 docker pull filipcojita/f-gcc-app:f-gcc-app
@@ -186,3 +195,8 @@ Creat de: **Cojiță Filip-Iosia**
 
 ## Bibliografie  
 https://chat.openai.com/
+
+https://www.mapchart.net/world.html
+
+https://hub.docker.com/
+
