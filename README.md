@@ -6,7 +6,12 @@ Algoritm de colorare a țărilor
 ## Detalii
 Acest cod implementează un algoritm simplu de colorare a țărilor pe o hartă, astfel încât țările vecine să nu aibă aceeași culoare. Algoritmul utilizează o structură de date pentru a reprezenta o țară, unde se stochează numele țării, lista vecinilor și culoarea asignată.
 
-Principalele componente ale codului sunt:
+
+__În cazul de față sunt date țările: România, Ungaria, Moldova, Ucraina, Bulgaria, Serbia și Slovacia, cărora le-au fost asignați toți vecinii lor reali.__
+
+__Culorile displonibile date sunt: Roșu, Galben, Albastru.__
+
+**Principalele componente ale codului sunt:**
 
   ```Structura tara```: Definește o structură pentru reprezentarea unei țări, cu câmpuri pentru nume, lista de vecini și culoare.
   
@@ -17,15 +22,18 @@ Principalele componente ale codului sunt:
   ```Funcția main```: Inițializează o listă de țări și vecinii acestora, precum și un set de culori disponibile. Apoi, apelurile la coloreaza_tari și rezultat aplică algoritmul de colorare și afișează rezultatele.
   
   În acest exemplu, se consideră că există trei culori disponibile (Roșu, Galben, Albastru), iar algoritmul încearcă să atribuie culori țărilor astfel încât vecinii să nu aibă aceeași culoare. În final, rezultatul este afișat în consolă, arătând numele țării și culoarea asignată.
+  
+
+## Exemplu rulare:
+*ce apare in CMD*
 
 ## Vizualizare exemplu preimplementat
 *photo*
 
 ## Livrabil
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+docker pull filipcojita/f-gcc-app:f-gcc-app
 
-## Exemplu rulare:
-*ce apare in CMD*
+docker run -it filipcojita/f-gcc-app:f-gcc-app
 
 ## Explicații amănunțite
 ```
