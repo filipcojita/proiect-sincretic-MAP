@@ -1,41 +1,49 @@
 # proiect-sincretic-MAP
 
-## Name
+## Nume
 Algoritm de colorare a țărilor
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## Detalii
+Acest cod implementează un algoritm simplu de colorare a țărilor pe o hartă, astfel încât țările vecine să nu aibă aceeași culoare. Algoritmul utilizează o structură de date pentru a reprezenta o țară, unde se stochează numele țării, lista vecinilor și culoarea asignată.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Principalele componente ale codului sunt:
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+  ```Structura tara```: Definește o structură pentru reprezentarea unei țări, cu câmpuri pentru nume, lista de vecini și culoare.
+  
+  ```Funcția coloreaza_tari```: Primește o listă de țări și un set de culori disponibile. Pentru fiecare țară, determină culorile disponibile eliminând culorile vecinilor. Apoi, atribuie țării prima culoare disponibilă.
+  
+  ```Funcția rezultat```: Afisează rezultatele colorării pentru fiecare țară.
+  
+  ```Funcția main```: Inițializează o listă de țări și vecinii acestora, precum și un set de culori disponibile. Apoi, apelurile la coloreaza_tari și rezultat aplică algoritmul de colorare și afișează rezultatele.
+  
+  În acest exemplu, se consideră că există trei culori disponibile (Roșu, Galben, Albastru), iar algoritmul încearcă să atribuie culori țărilor astfel încât vecinii să nu aibă aceeași culoare. În final, rezultatul este afișat în consolă, arătând numele țării și culoarea asignată.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Vizualizare exemplu preimplementat
+*photo*
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
+## Livrabil
 Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Exemplu rulare:
+*ce apare in CMD*
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+## Explicații amănunțite
+struct tara {
+	string nume;
+	set<string> vecini;
+	string culoare;
+};
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Structura definește o țară (tara), având următoarele câmpuri:
+nume: șir de caractere care reprezintă numele țării.
+vecini: un set de șiruri de caractere care stochează numele țărilor vecine.
+culoare: șir de caractere reprezentând culoarea asignată țării.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
+## Concluzii
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+
+## Autor
+Creat de: **Cojiță Filip-Iosia**
+
+## Bibliografie  
+https://chat.openai.com/
