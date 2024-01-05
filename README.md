@@ -1,4 +1,4 @@
-# proiect-sincretic-MAP
+# Proiect-Sincretic-MAP
 
 ## Nume
 Algoritm de colorare a țărilor
@@ -43,6 +43,15 @@ Tara: Slovacia, Culoare: Albastru
 docker pull filipcojita/f-gcc-app:f-gcc-app
 
 docker run -it filipcojita/f-gcc-app:f-gcc-app
+
+## Dockerfile
+```
+FROM gcc:latest
+WORKDIR /usr/src/myapp
+COPY tari2.cpp .
+RUN gcc -o myapp tari2.cpp -lstdc++
+CMD ["./myapp"]
+```
 
 ## Explicații amănunțite
 ```
