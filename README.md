@@ -187,9 +187,6 @@ int main() {
 }
 ```
 
-## Concluzii
-+ concluzie
-
 ## Autor
 Creat de: **Cojiță Filip-Iosia**
 
