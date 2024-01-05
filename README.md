@@ -99,8 +99,79 @@ int main() {
 + Se apelează funcțiile coloreaza_tari și rezultat pentru a aplica algoritmul de colorare și a afișa rezultatele.
 + Rezultatul este afișat în consolă, prezentând numele fiecărei țări și culoarea asignată conform algoritmului.
 
+## Cod Sursa (main.cpp)
+```
+#include <iostream>
+#include <vector>
+#include <map>
+#include <set>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+// definire structura tara
+struct tara {
+	string nume;
+	set<string> vecini;
+	string culoare;
+};
+
+// functie pt colorare tari
+void coloreaza_tari(vector<tara>& tari, const set<string>& culori_disponibile) {
+	// parcurgem fiecare tara in parte
+	for (tara& tara_curent : tari) {
+		// verific culorile disponibile pentru tara curenta
+		set<string> culoare_disponibila_tara = culori_disponibile;
+
+		// itereaza prin vecinii tarii si elimina culorile vecinilor
+		for (const string& vecin : tara_curent.vecini) {
+			auto vecin_iter = find_if(tari.begin(), tari.end(), [vecin](const tara& c) { 
+					return c.nume == vecin; 
+					});
+
+			if (vecin_iter != tari.end()) {
+				culoare_disponibila_tara.erase(vecin_iter->culoare);
+			}
+		}
+
+		// alege prima culoare disponibila pentru tara curenta
+		if (!culoare_disponibila_tara.empty()) {
+			tara_curent.culoare = *culoare_disponibila_tara.begin();
+		}
+	}
+}
+
+// functie pt afisarea rezultatelor
+void rezultat(const vector<tara>& tari) {
+	for (const tara& tara : tari) {
+		cout << "Tara: " << tara.nume << ", Culoare: " << tara.culoare << endl;
+	}
+}
+
+int main() {
+	//lista tari si vecini
+	vector<tara> tari = {
+		{"Romania", {"Ungaria", "Bulgaria", "Ucraina", "Moldova", "Serbia"}, ""},
+		{"Ungaria", {"Romania", "Austria", "Slovacia", "Slovenia", "Croatia", "Serbia"}, ""},
+		{"Serbia", {"Romania", "Ungaria", "Croatia", "Bosnia", "Muntenegru","Kosovo", "Macedonia", "Bulgaria"}, ""},
+		{"Moldova", {"Romania", "Ucraina"}, ""},
+		{"Ucraina", {"Romania", "Ungaria", "Polonia", "Rusia","Slovacia", "Moldova", "Belarus"}, ""},
+		{"Bulgaria", {"Romania", "Serbia", "Macedonia", "Grecia", "Turcia"}, ""},
+		{"Slovacia", {"Ucraina", "Polonia", "Cehia", "Austria","Ungaria"}, ""}
+	};
+
+	// lista culori posibile
+	set<string> culori_disponibile = { "Rosu", "Galben", "Albastru" };
+
+	coloreaza_tari(tari, culori_disponibile);
+	rezultat(tari);
+
+	return 0;
+}
+```
+
 ## Concluzii
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
++ concluzie
 
 ## Autor
 Creat de: **Cojiță Filip-Iosia**
